@@ -54,7 +54,10 @@ def process_item(item, overwrite: bool, dryrun: bool, verbose: bool):
     """
     source_url = item.file['FileName']
     dest_filename = ".".join([item.file['DisplayName'], item.file['Extension']])
-    download_file(source_url, dest_filename, overwrite=overwrite, dryrun=dryrun, verbose=verbose)
+    try:
+        download_file(source_url, dest_filename, overwrite=overwrite, dryrun=dryrun, verbose=verbose)
+    except Exception as e:
+        print(f"Error in {item.file['fileName']}: {e}")
 
 
 def parse_args():
