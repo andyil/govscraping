@@ -58,7 +58,7 @@ def process_item(item, overwrite: bool, dryrun: bool, verbose: bool):
     try:
         download_file(source_url, dest_filename, overwrite=overwrite, dryrun=dryrun, verbose=verbose)
     except Exception as e:
-        print(f"Error in {item.file['fileName']}: {e}")
+        print(f"Error in {item.file['FileName']}: {e}")
 
 
 def parse_args():
